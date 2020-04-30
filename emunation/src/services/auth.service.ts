@@ -30,7 +30,6 @@ export class AuthService {
                 this.alertsService.add('Login failed', JSON.stringify(reason, null, 2));
             });
 
-        debugger;
         if (result) {
             this.authenticated = true;
             this.user = await this.getUser();
@@ -51,7 +50,6 @@ export class AuthService {
                 this.alertsService.add('Get token failed', JSON.stringify(reason, null, 2));
             });
 
-        debugger;
         if (result) {
             // Temporary to display token in an error box
             return result.accessToken;
