@@ -14,6 +14,9 @@ import { AlertsComponent } from './alerts/alerts.component';
 import { OAuthSettings } from 'src/models/oauth';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SavesService } from 'src/services/saves.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { MatToolbarModule } from '@angular/material/toolbar';
 
 export const protectedResourceMap: [string, string[]][] =
     [
@@ -42,6 +45,8 @@ export const protectedResourceMap: [string, string[]][] =
         BrowserModule,
         AppRoutingModule,
         NgbModule,
+        MatSidenavModule,
+        MatToolbarModule,
         HttpClientModule,
         FontAwesomeModule,
         MsalModule.forRoot({
@@ -55,6 +60,7 @@ export const protectedResourceMap: [string, string[]][] =
                 consentScopes: [ 'user.read', 'api://4023cf15-74fa-4f7c-ad53-fe8899902c73/api-access' ],
                 protectedResourceMap
             }),
+        BrowserAnimationsModule,
     ],
     providers:
     [
