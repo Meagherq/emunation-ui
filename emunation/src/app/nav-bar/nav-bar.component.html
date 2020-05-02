@@ -1,13 +1,52 @@
+<mat-toolbar color="primary">
+    <span class="emunation-title">Emunation</span>
+    <object data="../../assets/nation.svg" class="emunation-logo" type="image/svg+xml">
+    </object>
+    <span class="fill-remaining-space"></span>
+
+    <div>
+        <ul class="navbar-nav justify-content-end">
+            <li *ngIf="authenticated" ngbDropdown placement="bottom-right" class="nav-item">
+                <a ngbDropdownToggle id="userMenu" class="nav-link" role="button" aria-haspopup="true"
+                    aria-expanded="false">
+                    <div *ngIf="user && user.avatar; then userAvatar else defaultAvatar"></div>
+                    <ng-template #userAvatar>
+                        <img src="user.avatar" class="rounded-circle align-self-center mr-2" style="width: 32px;">
+                    </ng-template>
+                    <ng-template #defaultAvatar>
+                        <fa-icon [icon]="[ 'far', 'user-circle' ]" fixedWidth="true" size="lg"
+                            class="default-avatar rounded-circle align-self-center mr-2"></fa-icon>
+                    </ng-template>
+                </a>
+                <div ngbDropdownMenu aria-labelledby="userMenu">
+                    <h5 class="dropdown-item-text mb-0">{{user.displayName}}</h5>
+                    <p class="dropdown-item-text text-muted mb-0">{{user.email}}</p>
+                    <div class="dropdown-divider"></div>
+                    <button class="dropdown-item" role="button" (click)="signOut()">Sign Out</button>
+                </div>
+            </li>
+            <li *ngIf="!authenticated" class="nav-item">
+                <button class="btn btn-link nav-link border-0 sign-in-button" role="button" (click)="signIn()">Sign In</button>
+            </li>
+        </ul>
+    </div>
+</mat-toolbar>
 <mat-sidenav-container class="example-container">
-    <mat-sidenav mode="side" opened>Sidenav content</mat-sidenav>
-    <mat-sidenav-content>
+    <mat-sidenav class="main-navigation" mode="side" opened>
+        <mat-nav-list class="nav-list">
+            <a mat-list-item [routerLink]="''"> Home </a>
+            <a mat-list-item [routerLink]="'/emulators'"> Emulator </a>
+            <a mat-list-item [routerLink]="'/games'"> Games </a>
+        </mat-nav-list>
+    </mat-sidenav>
+    <mat-sidenav-content class="main-content">
         <main role="main" class="container">
             <app-alerts></app-alerts>
             <router-outlet></router-outlet>
         </main>
     </mat-sidenav-content>
 </mat-sidenav-container>
-  
+
 
 
 

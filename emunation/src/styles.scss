@@ -12,11 +12,11 @@
 // Define the palettes for your theme using the Material Design palettes available in palette.scss
 // (imported above). For each palette, you can optionally specify a default, lighter, and darker
 // hue. Available color palettes: https://material.io/design/color/
-$emunation-primary: mat-palette($mat-indigo);
-$emunation-accent: mat-palette($mat-pink, A200, A100, A400);
+$emunation-primary: mat-palette($mat-purple, 700);
+$emunation-accent: mat-palette($mat-indigo, 200);
 
 // The warn palette is optional (defaults to red).
-$emunation-warn: mat-palette($mat-red);
+$emunation-warn: mat-palette($mat-red, 600);
 
 // Create the theme object (a Sass map containing all of the palettes).
 $emunation-theme: mat-light-theme($emunation-primary, $emunation-accent, $emunation-warn);
@@ -29,12 +29,12 @@ $emunation-theme: mat-light-theme($emunation-primary, $emunation-accent, $emunat
 /* You can add global styles to this file, and also import other style files */
 @import "~bootstrap/dist/css/bootstrap.css";
 
-/* Add padding for the nav bar */
+/* Style debug info in alerts */
+
 body {
-  padding-top: 4.5rem;
+    background-color: #EDF2F4;
 }
 
-/* Style debug info in alerts */
 .alert-pre {
   word-wrap: break-word;
   word-break: break-all;

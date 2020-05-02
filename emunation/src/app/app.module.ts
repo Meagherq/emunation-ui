@@ -17,6 +17,7 @@ import { SavesService } from 'src/services/saves.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
+import { MatListModule } from '@angular/material/list';
 
 export const protectedResourceMap: [string, string[]][] =
     [
@@ -47,6 +48,7 @@ export const protectedResourceMap: [string, string[]][] =
         NgbModule,
         MatSidenavModule,
         MatToolbarModule,
+        MatListModule,
         HttpClientModule,
         FontAwesomeModule,
         MsalModule.forRoot({
