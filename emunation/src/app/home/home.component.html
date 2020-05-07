@@ -3,7 +3,7 @@
     <p class="lead">This app will play retro games in a browser emulator!</p>
     <div *ngIf="authenticated; then welcomeUser else signInPrompt"></div>
     <ng-template #welcomeUser>
-        <h4>Welcome {{ user.givenName }} {{ user.familyName }}!</h4>
+        <h4>Welcome {{ user?.givenName }} {{ user?.familyName }}!</h4>
         <p>Use the navigation bar on the left to get started.</p>
     </ng-template>
     <ng-template #signInPrompt>

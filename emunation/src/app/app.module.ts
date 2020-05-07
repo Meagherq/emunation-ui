@@ -11,13 +11,17 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { NavBarComponent } from './nav-bar/nav-bar.component';
 import { AlertsComponent } from './alerts/alerts.component';
-import { OAuthSettings } from 'src/models/oauth';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { SavesService } from 'src/services/saves.service';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatSidenavModule } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatListModule } from '@angular/material/list';
+import { MatCardModule } from '@angular/material/card';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { FormsModule }   from '@angular/forms';
+import { EmulatorComponent } from './emulator/emulator.component';
 
 export const protectedResourceMap: [string, string[]][] =
     [
@@ -40,7 +44,8 @@ export const protectedResourceMap: [string, string[]][] =
         AppComponent,
         HomeComponent,
         NavBarComponent,
-        AlertsComponent
+        AlertsComponent,
+        EmulatorComponent
     ],
     imports: [
         BrowserModule,
@@ -49,6 +54,10 @@ export const protectedResourceMap: [string, string[]][] =
         MatSidenavModule,
         MatToolbarModule,
         MatListModule,
+        MatCardModule,
+        MatFormFieldModule,
+        MatInputModule,
+        FormsModule,
         HttpClientModule,
         FontAwesomeModule,
         MsalModule.forRoot({

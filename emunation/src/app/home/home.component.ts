@@ -21,8 +21,8 @@ export class HomeComponent implements OnInit {
         return this.authService.user;
     }
 
-    get weather(): any {
-        return this.GetWeather();
+    get games(): any {
+        return this.GetGames();
     }
 
     constructor(public authService: AuthService, private savesService: SavesService) { }
@@ -32,11 +32,17 @@ export class HomeComponent implements OnInit {
 
     async signIn(): Promise<void> {
         await this.authService.signIn();
-        console.log(this.GetWeather());
+        console.log(this.GetGames());
     }
 
-    async GetWeather() {
-        (await this.savesService.getWeather()).subscribe(x => {
+    async GetGames() {
+        (await this.savesService.getGames()).subscribe(x => {
+            console.log(x);
+        });
+    }
+
+    async GetGame(name) {
+        (await this.savesService.getGame(name)).subscribe(x => {
             console.log(x);
         });
     }
